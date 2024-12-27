@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: my-first-app
+
+server:
+  port: 8123
