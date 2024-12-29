@@ -3,6 +3,7 @@ RUN java -version
 
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /workspace/my-first-app
+RUN sh pwd
 RUN mvn -v
 RUN mvn clean install
 
