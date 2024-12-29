@@ -7,5 +7,6 @@ RUN mvn clean install
 
 FROM usejdk
 EXPOSE 8123
-ADD /target/my-first-app.jar my-first-app.jar
+WORKDIR /my-first-app
+COPY --from:build /target/my-first-app.jar my-first-app/
 ENTRYPOINT ["java","-jar","/my-first-app.jar"]
