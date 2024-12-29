@@ -2,6 +2,7 @@ FROM eclipse-temurin:17 AS usejdk
 RUN java -version
 
 FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /my-first-app
 RUN mvn -v
 RUN mvn clean install
 
