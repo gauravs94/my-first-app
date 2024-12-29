@@ -1,11 +1,5 @@
 FROM eclipse-temurin:17 AS usejdk
-RUN java -version
-
-FROM maven:3.9.9-eclipse-temurin-17 AS build
-RUN pwd
-RUN mvn -v
-
-FROM usejdk
+WORKDIR /var/jenkins_home/workspace/my-first-app/
 EXPOSE 8123
-COPY --from=build /target/my-first-app.jar my-first-app/
+ADD /target/my-first-app.jar /var/jenkins_home/workspace/
 ENTRYPOINT ["java","-jar","/my-first-app.jar"]
